@@ -103,6 +103,7 @@ body {
 }
 .camera-list {
   display: block;
+  overflow: hidden;
   z-index: 100;
   position: absolute;
   color: #fff;
@@ -112,13 +113,19 @@ body {
   left: 61%;
 }
 
-.camera-list select {
+
+.camera-list label {
+  display: inline-flex;
   padding: 8px 15px;
-  margin: 2px;
   width: auto;
+  margin: 2px;
   background-color: transparent;
+  /* display: none; */
 }
 
+/* .camera-list label:first-child {
+opacity: none;
+} */
 .camera-list option {
   padding: 10px 20px;
   width: auto;

@@ -18,10 +18,10 @@
 
     <section class="container">
       <div class="form">
-        <form>
+        <form onsubmit="return false" >
           <div class="group">
             <label for="fname">First Name :</label>
-            <input id="fname" type="text" />
+            <input id="fname" type="text"  />
           </div>
           <div class="group">
             <label for="lname">Last Name :</label>
@@ -32,7 +32,7 @@
             <input id="number" type="text" />
           </div>
           <div class="button">
-            <button type="submit" class="btn btn-green">Submit Data</button>
+            <button type="submit" class="btn btn-green" onclick="handleSubmit()">Submit Data</button>
           </div>
         </form>
       </div>
