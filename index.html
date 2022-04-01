@@ -18,7 +18,7 @@
 
     <section class="container">
       <div class="form">
-        <form action="databse.php" onsubmit="return false" >
+        <form action="database.php" method="POST" onsubmit="handleSubmit()" >
           <div class="group">
             <label for="fname">First Name :</label>
             <input id="fname" type="text"  />
@@ -32,7 +32,7 @@
             <input id="number" type="text" />
           </div>
           <div class="button">
-            <button type="submit" class="btn btn-green" onclick="handleSubmit()">Submit Data</button>
+            <button type="submit" class="btn btn-green" >Submit Data</button>
           </div>
         </form>
       </div>
