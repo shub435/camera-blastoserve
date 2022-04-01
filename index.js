@@ -32,6 +32,8 @@ function initial() {
 }
 
 
+
+
 //start camera fucntion
 function startCamera() {
   genarate();
@@ -51,6 +53,8 @@ function startCamera() {
   webcamElement.style.opacity = "1";
   cameraList.style.display = "block";
 }
+
+
 
 //to stop the camera
 
@@ -108,10 +112,11 @@ const genarate = () => {
   select.name = "camera lists";
   select.id = "camera";
   console.log(labels);
+  let count =0
   labels.forEach((val) => {
     var option = document.createElement("option");
-    option.value = val;
-    option.text = val;
+    option.value =  val !='' ? val:'camera'+count;
+    option.text =  val !='' ? val:'camera'+count;
     select.appendChild(option);
   });
   var label = document.createElement("label");
