@@ -113,7 +113,6 @@ body {
   left: 61%;
 }
 
-
 .camera-list label {
   display: inline-flex;
   padding: 8px 15px;
@@ -123,11 +122,18 @@ body {
   /* display: none; */
 }
 
-/* .camera-list label:first-child {
-opacity: none;
-} */
 .camera-list option {
   padding: 10px 20px;
   width: auto;
   height: auto;
+}
+
+.d-none {
+  width: 300px;
+  position: absolute;
+  top: 20%;
+  left: 65%;
+  border-radius: 10px;
+  background: transparent;
+  border: #333333 solid 1px;
 }

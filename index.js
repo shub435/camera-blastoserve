@@ -13,18 +13,12 @@ const webcam = new Webcam(
   snapSoundElement
 );
 
-console.log(webcam);
+// console.log(webcam);
 
 //onclick on oencamera
 
 btn.addEventListener("click", initial, false);
 function initial() {
-  // if (select.value === '') {
-  //   videoConstraints.facingMode = 'environment';
-  // } else {
-  //   videoConstraints.deviceId = { exact: select.value };
-  // }
-  // console.log("click");
   if (btn.innerHTML == "close camera") {
     stopCamera();
     btn.innerHTML = "open camera";
@@ -37,51 +31,9 @@ function initial() {
   }
 }
 
-//start camera fucntion
-function startCamera() {
-  console.log("click");
-  webcam
-    .start()
-    .then((result) => {
-      console.log("webcam started");
-    })
-    .catch((err) => {
-      console.log(err);
-    });
-  btn.innerHTML = "close camera";
-
-  takeSnap.style.color = "red";
-  takeSnap.style.opacity = "1";
-  webcamElement.style.opacity = "1";
-  cameraList.style.display = "block";
-  genarate();
-  cameraList.appendChild("");
-}
-
-//to stop the camera
-
-function stopCamera() {
-  webcam.stop();
-  webcamElement.style.display = "none";
-  cameraList.style.display = "none";
-  console.log("stop");
-  webcamElement.style.opacity = "0";
-  takeSnap.style.color = "#33333";
-  takeSnap.style.opacity = "0";
-}
-
-//to take the picture
-function takePicture() {
-  picture = webcam.snap();
-
-  console.log(picture);
-  stopCamera();
-  btn.style.display = "none";
-  takeSnap.style.display = "none";
-}
-
 //to get the camera list
 // console.log(navigator.mediaDevices.enumerateDevices());
+var label = document.createElement("label");
 
 let labels = [];
 navigator.mediaDevices
@@ -98,9 +50,9 @@ navigator.mediaDevices
             " group id = " +
             device.groupId
         );
-        webcam.webcamList.push(device.deviceId);
+        // webcam.webcamList.push(device.deviceId);
         labels.push(device.label);
-        console.log(labels, webcam.webcamList);
+        console.log(labels);
       }
     });
   })
@@ -119,25 +71,77 @@ const genarate = () => {
     option.text = val != "" ? val : "camera " + count;
     select.appendChild(option);
   });
-  var label = document.createElement("label");
   label.innerHTML = "Choose your camera: ";
   label.htmlFor = "camera";
+
   cameraList.appendChild(label).appendChild(select);
 };
 
+//start camera fucntion
+function startCamera() {
+  console.log("click");
+  webcam
+    .start()
+    .then((result) => {
+      console.log("webcam started");
+    })
+    .catch((err) => {
+      console.log(err);
+    });
+  btn.innerHTML = "close camera";
+
+  takeSnap.style.color = "red";
+  takeSnap.style.opacity = "1";
+  takeSnap.style.display = "block";
+  webcamElement.style.opacity = "1";
+  webcamElement.style.display = "block";
+  cameraList.style.display = "block";
+  genarate();
+ 
+}
+
+//to stop the camera
+
+function stopCamera() {
+  webcam.stop();
+  webcamElement.style.display = "none";
+  cameraList.style.display = "none";
+  console.log("stop");
+  webcamElement.style.opacity = "0";
+  takeSnap.style.color = "#33333";
+  takeSnap.style.opacity = "0";
+  cameraList.removeChild(label);
+
+}
+
+//to take the picture
+function takePicture() {
+  picture = webcam.snap();
+  canvasElement.style.display = "block";
+
+  // document.querySelector("#download-photo").href = picture;
+  stopCamera();
+  btn.style.display = "none";
+  takeSnap.style.display = "none";
+}
+
 //collect the data
+
 let fname = document.getElementById("fname");
 let lname = document.getElementById("lname");
 let number = document.getElementById("number");
 
 function handleSubmit() {
   // e.preventDefault();
-  console.log("First Name : "+ fname.value);
-  console.log("Last Name : "+ lname.value);
-  console.log("Contact  Number : "+ number.value);
-  console.log("image:"+ picture);
+  console.log("First Name : " + fname.value);
+  console.log("Last Name : " + lname.value);
+  console.log("Contact  Number : " + number.value);
+  console.log("image:" + picture);
   fname.value = "";
   lname.value = "";
   number.value = "";
   picture = "";
+  canvasElement.style.display = "none";
+  btn.style.display = "block";
+  btn.innerHTML = "open camera";
 }
