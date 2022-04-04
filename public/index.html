@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Blastoserve Scientific</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <div class="header">
+      <header>
+        <div class="heading">
+          <h1>Blastoserve camera</h1>
+        </div>
+      </header>
+    </div>
+
+    <section class="container">
+      <div class="form">
+        <form  onsubmit="return handleSubmit()">
+          <div class="group">
+            <label for="fname">First Name :</label>
+            <input id="fname" type="text" name="fname" />
+          </div>
+          <div class="group">
+            <label for="lname">Last Name :</label>
+            <input id="lname" type="text" name="lname" />
+          </div>
+          <div class="group">
+            <label for="number">Contact Number :</label>
+            <input id="number" type="number" name="phone" />
+          </div>
+          <div class="group">
+            <input id="image" style="display: none" type="text" name="image" />
+          </div>
+          <div class="button">
+            <button type="submit" class="btn btn-green submit-btn">
+              Submit Data
+            </button>
+          </div>
+        </form>
+      </div>
+      <div class="camera">
+        <button class="btn" id="openCamera">open camera</button>
+        <video
+          id="webcam"
+          autoplay
+          playsinline
+          width="640"
+          height="400"
+        ></video>
+        <button id="take-snap" class="btn btn-picture">take picture</button>
+        <canvas id="canvas" class="d-none"></canvas>
+        <audio id="snapSound" src="audio/snap.mp3" preload="auto"></audio>
+
+        <!-- <div id="download-photo"></div> -->
+        <div class="camera-list" id="camera-list"></div>
+      </div>
+    </section>
+    <script type="text/javascript" src="webCam.js"></script>
+    <script type="text/javascript" src="index.js"></script>
+  </body>
+</html>

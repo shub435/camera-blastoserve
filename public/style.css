@@ -1,0 +1,139 @@
+*,
+html {
+  margin: 0;
+  padding: 0;
+  outline: none;
+  border: none;
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  box-sizing: border-box;
+  transition: 0.3s ease-in-out linear;
+  color: #333333;
+}
+body {
+  background-color: #f2f2f2;
+  margin: 0;
+  padding: 0;
+}
+
+.header {
+  background-color: #66b366;
+  padding: 20px 8px;
+  display: flex;
+  justify-content: center;
+  color: #333333;
+}
+.heading h1 {
+  font-size: x-large;
+}
+
+.container {
+  display: flex;
+  width: 100%;
+  margin: 0 auto;
+  justify-content: center;
+  padding: 20px;
+}
+
+.container .form {
+  width: 40%;
+  text-align: left;
+  padding: 10px 20px;
+}
+.container .form .group {
+  margin: 10px 0;
+  width: 100%;
+  display: block;
+  padding: 0 10px;
+}
+.container .form .group label {
+  width: 100%;
+  margin: 15px;
+  padding: 10px 0;
+  color: #333333;
+}
+.container .form .group input {
+  color: #333333;
+  width: 80%;
+  border: 1px solid #333333;
+  margin: 15px 10px;
+  padding: 10px 20px;
+}
+.button {
+  display: flex;
+  width: 100%;
+  margin: 0 auto;
+  justify-content: center;
+}
+.btn {
+  width: auto;
+  padding: 10px 20px;
+  font: 600 larger;
+  border: 2px solid #f2f2f2;
+  box-shadow: 0.1rem 0.1rem 0.2rem 0.1rem #333333;
+}
+.btn-green {
+  background-color: #66b366;
+  border: 1px solid #66b366;
+  color: #f2f2f2;
+}
+.camera {
+  width: 40%;
+  margin-left: 5%;
+  justify-content: center;
+  margin: 0 auto;
+  display: block;
+}
+.camera button {
+  transform: translate(50%, 50%);
+}
+.camera video {
+  margin: 0;
+  position: absolute;
+  top: 30%;
+  left: 40%;
+}
+
+.btn-picture {
+  display: block;
+  position: absolute;
+  top: 70%;
+  left: 50%;
+  opacity: 0;
+  z-index: 10;
+}
+.camera-list {
+  display: block;
+  overflow: hidden;
+  z-index: 100;
+  position: absolute;
+  color: #fff;
+  background: transparent;
+  list-style: none;
+  top: 33%;
+  left: 61%;
+}
+
+.camera-list label {
+  display: inline-flex;
+  padding: 8px 15px;
+  width: auto;
+  margin: 2px;
+  background-color: transparent;
+  /* display: none; */
+}
+
+.camera-list option {
+  padding: 10px 20px;
+  width: auto;
+  height: auto;
+}
+
+.d-none {
+  width: 300px;
+  position: absolute;
+  top: 20%;
+  left: 65%;
+  border-radius: 10px;
+  background: transparent;
+  /* border: #333333 solid 1px; */
+}
