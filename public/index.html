@@ -18,7 +18,7 @@
 
     <section class="container">
       <div class="form">
-        <form  onsubmit="return handleSubmit()">
+        <form id="form_submit">
           <div class="group">
             <label for="fname">First Name :</label>
             <input id="fname" type="text" name="fname" />
@@ -53,12 +53,19 @@
         <button id="take-snap" class="btn btn-picture">take picture</button>
         <canvas id="canvas" class="d-none"></canvas>
         <audio id="snapSound" src="audio/snap.mp3" preload="auto"></audio>
-
-        <!-- <div id="download-photo"></div> -->
         <div class="camera-list" id="camera-list"></div>
+        <img src="#" id="download-photo" class="container-img" />
+        <a
+          id="download_image"
+          href="#"
+          class="btn btn-green btn-download"
+          download
+          >Download Image</a
+        >
       </div>
     </section>
-    <script type="text/javascript" src="webCam.js"></script>
-    <script type="text/javascript" src="index.js"></script>
+    <script src="js/FileSaver.js"></script>
+    <script type="text/javascript" src="js/webCam.js"></script>
+    <script type="text/javascript" src="js/index.js"></script>
   </body>
 </html>

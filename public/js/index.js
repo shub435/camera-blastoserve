@@ -4,8 +4,8 @@ const snapSoundElement = document.getElementById("snapSound");
 const btn = document.getElementById("openCamera");
 let takeSnap = document.getElementById("take-snap");
 let cameraList = document.getElementById("camera-list");
-let img = document.getElementById("image");
-let picture;
+let img = document.querySelector("#download-photo");
+
 let newUser = "user";
 const webcam = new Webcam(
   webcamElement,
@@ -111,13 +111,19 @@ function stopCamera() {
   cameraList.removeChild(label);
 }
 
+const link = document.getElementById("download_image");
 //to take the picture
 takeSnap.addEventListener(
   "click",
   function takePicture() {
-    picture = webcam.snap(function (datauri) {
+    var picture = webcam.snap(function (datauri) {
       console.log(datauri);
     });
+
+    link.style.display = "flex";
+    img.src = picture;
+    img.style.opacity = "1";
+    link.href = img.src;
     var block = picture.split(";");
     // Get the content type of the image
     var contentType = block[0].split(":")[1]; // In this case "image/png"
@@ -173,18 +179,35 @@ let lname = document.getElementById("lname");
 let number = document.getElementById("number");
 let submitButton = document.querySelector(".submit-btn");
 
-function handleSubmit() {
-  console.log("clicked");
+const formSubmit = document.getElementById("form_submit");
+formSubmit.addEventListener(
+  "submit",
+  (e) => {
+    e.preventDefault();
+    console.log("clicked");
 
-  // alert("data saved successfully");
+    var blob = new Blob(
+      [
+        `
+  'First Name': ${fname.value}
+  'Last Name': ${lname.value}
+  'Mobile Number': ${number.value}
+  `,
+      ],
+      { type: "text/plain;charset=utf-8" }
+    );
+    saveAs(blob, "patient-details.txt");
 
-  fname.value = "";
-  lname.value = "";
-
-  number.value = "";
-  picture = "";
-  img.value = "";
-  canvasElement.style.display = "none";
-  btn.style.display = "block";
-  btn.innerHTML = "open camera";
-}
+    fname.value = "";
+    lname.value = "";
+    
+    number.value = "";
+    // picture = "";
+    // img.value = "";
+    canvasElement.style.display = "none";
+    btn.style.display = "block";
+    btn.innerHTML = "open camera";
+    alert("data saved successfully");
+  },
+  false
+);
