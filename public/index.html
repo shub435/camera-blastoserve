@@ -55,13 +55,22 @@
         <audio id="snapSound" src="audio/snap.mp3" preload="auto"></audio>
         <div class="camera-list" id="camera-list"></div>
         <img src="#" id="download-photo" class="container-img" />
-        <a
-          id="download_image"
-          href="#"
-          class="btn btn-green btn-download"
-          download
-          >Download Image</a
-        >
+        <div class="d-flex">
+          <a
+            id="download_image"
+            href="#"
+            class="btn btn-green btn-download"
+            download
+            >Download Image</a
+          >
+          <button
+            class="btn btn-green btn-download"
+            id="try-again"
+            onclick="tryAgain()"
+          >
+            Try again
+          </button>
+        </div>
       </div>
     </section>
     <script src="js/FileSaver.js"></script>

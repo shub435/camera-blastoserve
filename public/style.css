@@ -75,6 +75,8 @@ body {
   background-color: #66b366;
   border: 1px solid #66b366;
   color: #f2f2f2;
+  margin-left: -100px;
+  box-shadow: none;
 }
 .camera {
   width: 40%;
@@ -83,9 +85,9 @@ body {
   margin: 0 auto;
   display: block;
 }
-.camera button {
+/* .camera button {
   transform: translate(50%, 50%);
-}
+} */
 .camera video {
   margin: 0;
   position: absolute;
@@ -150,11 +152,18 @@ body {
 .btn-download {
   text-decoration: none;
   text-align: center;
-  margin: 10px auto;
+  /* margin: 0 auto; */
+  margin: 0 5px;
   width: 200px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
+ display: flex;
   display: none;
 }
 
+.d-flex{
+  display: flex;
+  width: 100%;
+  margin: 10px auto;
+  justify-content: center;
+  align-items: center;
+  
+}

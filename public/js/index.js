@@ -5,7 +5,7 @@ const btn = document.getElementById("openCamera");
 let takeSnap = document.getElementById("take-snap");
 let cameraList = document.getElementById("camera-list");
 let img = document.querySelector("#download-photo");
-
+let tryAgainId = document.getElementById("try-again");
 let newUser = "user";
 const webcam = new Webcam(
   webcamElement,
@@ -113,6 +113,7 @@ function stopCamera() {
 
 const link = document.getElementById("download_image");
 //to take the picture
+
 takeSnap.addEventListener(
   "click",
   function takePicture() {
@@ -121,8 +122,9 @@ takeSnap.addEventListener(
     });
 
     link.style.display = "flex";
-    img.src = picture;
+    tryAgainId.style.display = "flex";
     img.style.opacity = "1";
+    img.src = picture;
     link.href = img.src;
     var block = picture.split(";");
     // Get the content type of the image
@@ -200,14 +202,23 @@ formSubmit.addEventListener(
 
     fname.value = "";
     lname.value = "";
-    
+
     number.value = "";
-    // picture = "";
+    picture = "";
     // img.value = "";
     canvasElement.style.display = "none";
     btn.style.display = "block";
     btn.innerHTML = "open camera";
-    alert("data saved successfully");
+    // alert("data saved successfully");
   },
   false
 );
+
+//try again
+
+function tryAgain() {
+  startCamera();
+  img.style.opacity = "0";
+  link.style.display = "none";
+  tryAgainId.style.display = "none";
+}
